@@ -1,0 +1,219 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:whie;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    background: yellow;
+}
+
+/* Portrait layout (default) */
+
+
+#menu-btn-holder {
+    /*border: 1px solid red;*/
+    background: white;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+
+#menu-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 600ms ease;
+  left: 100%;
+  margin-left: -60px;
+}
+#menu-btn #hamburguer {
+  cursor: pointer;
+  width: 40px;
+  padding: 0px;
+  height: 3px;
+  background: black;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px transparent;
+  text-indent: -999px;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  margin-top: -1px;
+  -webkit-appearance: none;
+  line-height: 0px;
+  transition: all 300ms ease;
+  border-radius: 99px;
+}
+#menu-btn #hamburguer:active, #menu-btn #hamburguer:focus {
+  outline: 0px;
+  border: 0px;
+}
+#menu-btn #hamburguer::after, #menu-btn #hamburguer::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0px;
+  height: 3px;
+  background: black;
+  width: 100%;
+  transition: all 300ms ease;
+  border-radius: 99px;
+}
+#menu-btn #hamburguer::after {
+  top: -15px;
+}
+#menu-btn #hamburguer::before {
+  bottom: -15px;
+  left: auto;
+  right: 0px;
+}
+#menu-btn.active {
+  transform: rotate(360deg);
+}
+#menu-btn.active #hamburguer {
+  background: transparent;
+}
+#menu-btn.active #hamburguer:after {
+  transform: rotate(-135deg) translate(-10px, -10px) scale(1.2, 1.2);
+}
+#menu-btn.active #hamburguer:before {
+  transform: rotate(135deg) translate(-10px, 10px) scale(1.2, 1.2);
+}
+
+
+
+
+
+
+
+
+.control {
+  border: 11.2px solid #000;
+  border-radius: 50%;
+  margin: 20px;
+  padding: 28px;
+  width: 112px;
+  height: 112px;
+  font-size: 0;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  left: 50%;
+  position: absolute;
+  margin-left: -85px;
+  top: 50%;
+  margin-top: -95px;
+}
+.control,
+.control .left,
+.control .right,
+.control:before {
+  display: inline-block;
+  vertical-align: middle;
+  transition: border 0.4s, width 0.4s, height 0.4s, margin 0.4s;
+  transition-tiomig-function: cubic-bezier(1, 0, 0, 1);
+}
+.control:before {
+  content: "";
+  height: 112px;
+}
+.control.pause .left,
+.control.pause .right {
+  margin: 0;
+  border-left: 36.96px solid #000;
+  border-top: 0 solid transparent;
+  border-bottom: 0 solid transparent;
+  height: 96.992px;
+}
+.control.pause .left {
+  border-right: 22.4px solid transparent;
+}
+.control.play .left {
+  margin-left: 18.66666667px;
+  border-left: 48.496px solid #000;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  border-right: 0px solid transparent;
+  height: 56px;
+}
+.control.play .right {
+  margin: 0;
+  border-left: 48.496px solid #000;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  height: 0px;
+}
+
+
+
+
+
+
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 90px;
+}
+
+
+
+
+
+
+#playlist {
+  background: black;
+  position: absolute;
+  color: white;
+  height: 100%;
+  left: -100%;
+  top:0;
+
+  transition: .8s;
+}
+#playlist.active {
+  left: 0;
+}
+
+
+.playlist-item {
+    border-bottom: 1px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 19px;
+    cursor: pointer;
+}
